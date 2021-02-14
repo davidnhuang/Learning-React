@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- React Library-->
+    <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+    <!-- React DOM library -->
+    <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+    <!-- Babel Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+    <title>Let's React!</title>
+</head>
+<body>
+    <!-- DESIGNATED LCOATION TO INSERT REACT CONTENT -->
+    <div id="app">
+        React has not rendered yet
+    </div>
+    <!-- Javascript -->
+    <script type="text/babel">
+        
+        // Create variable for JSX and for location
+
+            // Variable for JSX
+            var header = <h>This is header</h>;
+
+            // Variable for location
+            var destination = document.getElementById("app");
+
+        // Render React to DOM - takes 2 arugments (react what, react where)
+        ReactDOM.render(
+            // React what - JS
+            header,
+            // React where - DIV into ID of "App"
+            destination
+        );
+
+    </script>
+
+</body>
+</html>
