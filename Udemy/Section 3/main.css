@@ -1,0 +1,32 @@
+h1 {
+    height: 50px;
+    width: 150px;
+}
+
+.red {
+    background-color: red;
+}
+
+.orange {
+    background-color: orange;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.indigo {
+    background-color: indigo;
+}
+
+.green {
+    background-color: green;
+}
+
+.violet {
+    background-color: violet;
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stateless Functional Components</title>
+    <!-- React Library-->
+    <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+    <!-- React DOM library -->
+    <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+    <!-- Babel Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+</head>
+<body>
+    <div id="app">React not rendered yet</div>
+
+    <script type="text/babel">
+        
+        // First stateless functional component
+        // Component is capitalized
+        // One return statement
+        var ColorSpectrum = function() {
+            return (
+                <h1>Red, Orange, Yellow, Green, Blue, Indigo, Violet</h1>
+            );
+        }
+        
+        var Red = function() {
+            return(<h1>Red, </h1>);
+        }
+
+        var Orange = function() {
+            return(<h1>Orange, </h1>);
+        }
+
+        var Yellow = function() {
+            return(<h1>Yellow, </h1>);
+        }
+
+        var Green = function() {
+            return(<h1>Green, </h1>);
+        }
+
+        var Blue = function() {
+            return(<h1>Blue, </h1>);
+        }
+
+        var Indigo = function() {
+            return(<h1>Indigo, </h1>);
+        }
+
+        var Violet = function() {
+            return(<h1>Violet</h1>);
+        }
+
+        var ColorCollection = function() {
+            return (
+                <div>
+                    <Red/>
+                    <Orange/>
+                    <Yellow/>
+                    <Green/>
+                    <Blue/>
+                    <Indigo/>
+                    <Violet/>
+                </div>
+            );
+        }
+
+        // Challenge
+        // Create a component for all the colors of the spectrum all in one parent DIV
+
+        ReactDOM.render (
+
+            <ColorCollection/>,
+
+            document.getElementById("app")
+        );
+
+    </script>
+</body>
+</html>
