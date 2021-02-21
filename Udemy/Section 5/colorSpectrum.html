@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- React Library-->
+    <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+    <!-- React DOM library -->
+    <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+    <!-- Babel Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+    <title>Let's React!</title>
+</head>
+<body>
+    <!-- DESIGNATED LCOATION TO INSERT REACT CONTENT -->
+    <div id="app">
+        React has not rendered yet
+    </div>
+    <!-- Javascript -->
+    <script type="text/babel">
+
+        // Props are immutable and unidirection - top down
+        // By putting props into the function(), we can pass in values
+        var Color = function(props) {
+
+            var colorStyle = {
+                backgroundColor: props.color,
+                width: 100,
+            }
+
+            return (
+                <h1 style={colorStyle}>{props.colorName}</h1>
+            );
+        }
+
+        // Render React to DOM - takes 2 arugments (react what, react where)
+        ReactDOM.render(
+            
+            // Start here //
+            // Notice how we assigned the prop name into the Person function
+            // We pass the data "Rob" into 
+            <div>
+                <Color color="red" colorName="Red"/>
+                <Color color="blue" colorName="Blue"/>
+                <Color color="yellow" colorName="Yellow"/>
+                <Color color="violet" colorName="Violet"/>
+                <Color color="green" colorName="Green"/>
+                <Color color="orange" colorName="Orange"/>
+            </div>
+            ,
+            
+            // React where - DIV into ID of "App"
+            document.getElementById("app")
+        );
+
+    </script>
+
+</body>
+</html>
