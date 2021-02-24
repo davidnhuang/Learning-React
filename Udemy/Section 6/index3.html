@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- React Library-->
+    <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+    <!-- React DOM library -->
+    <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+    <!-- Babel Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+    <title>Let's React!</title>
+</head>
+<body>
+    <!-- DESIGNATED LCOATION TO INSERT REACT CONTENT -->
+    <div id="app">
+        React has not rendered yet
+    </div>
+    <!-- Javascript -->
+    <script type="text/babel">
+
+        var siblings = [
+            {id: 1, name: "Christine", female: true},
+            {id: 2, name: "David", female: false},
+            {id: 3, name: "Catherine", female: true}
+        ]
+
+        var femaleSiblings = siblings.filter(function(person){
+            return person.female
+        }).map(function(person){
+            return <div key={person.id}>{person.name}</div>
+        })
+
+        var maleSiblings = siblings.filter(function(person){
+            return person.female === false
+        }).map(function(person){
+            return <div key={person.id}>{person.name}</div>
+        })
+
+        function FamilyList(props) {
+            return (
+                <div>
+                    <h1>Female Siblings</h1>
+                    <div>
+                        {femaleSiblings}
+                    </div>
+                    <hr/>
+                    <h1>Male Siblings</h1>
+                    <div>
+                        {maleSiblings}
+                    </div>
+                </div>
+            )
+        }
+        
+        // Render React to DOM - takes 2 arugments (react what, react where)
+        ReactDOM.render(
+            // React what - JSX
+            <FamilyList siblings={siblings}/>
+            ,
+            // React where - DIV into ID of "App"
+            document.getElementById("app")
+        );
+
+    </script>
+
+</body>
+</html>
