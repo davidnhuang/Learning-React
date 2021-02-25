@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- React Library-->
+    <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+    <!-- React DOM library -->
+    <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+    <!-- Babel Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+    <title>Challenge 2</title>
+</head>
+<body>
+    <div id="app">
+        React has not rendered yet
+    </div>
+    <!-- Javascript -->
+    <script type="text/babel">
+        
+        // Code
+        var siblings = [
+            {id: 1, name: "Christine", female: true},
+            {id: 2, name: "David", female: false},
+            {id: 3, name: "Catherine", female: true}
+        ]
+
+        //
+        class FemaleFamilyList extends React.Component {
+            render(props) {
+                return(
+                    <div>
+                    {
+                        this.props.siblings.filter(function(siblings){
+                            return siblings.female
+                        }).map(function(femaleSiblings){
+                            return <div key={femaleSiblings.id}>{femaleSiblings.name}</div>
+                        })
+                    }
+                    </div>
+                )
+            };
+        }
+
+        // Render to DOM
+        ReactDOM.render(
+
+            // Render items
+            <FemaleFamilyList siblings={siblings}/>
+            ,
+            // Target
+            document.getElementById("app")
+        );
+
+    </script>
+
+</body>
+</html>

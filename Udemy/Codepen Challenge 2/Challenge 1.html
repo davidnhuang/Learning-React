@@ -19,11 +19,32 @@
     </div>
     <!-- Javascript -->
     <script type="text/babel">
+
+        var siblings = [
+            {id: 1, name: "Christine", female: true},
+            {id: 2, name: "David", female: false},
+            {id: 3, name: "Catherine", female: true}
+        ]
         
+        // Challenge: use .map method and iterate through all siblings into a list
+        class FamilyList extends React.Component {
+            render(props) {
+                return(
+                    <h4>
+                    {
+                        this.props.siblings.map(function(siblings){
+                            return <div key={siblings.id}>{siblings.name}</div>
+                        })
+                    }
+                    </h4>
+                );
+            }
+        }
+
         // Render React to DOM - takes 2 arugments (react what, react where)
         ReactDOM.render(
             // React what - JSX
-            <h1>Start here</h1>
+            <FamilyList siblings={siblings}/>
             ,
             // React where - DIV into ID of "App"
             document.getElementById("app")
