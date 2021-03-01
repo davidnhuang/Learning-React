@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- React Library-->
+    <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+    <!-- React DOM library -->
+    <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+    <!-- Babel Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+    <title>Color Spectrum</title>
+</head>
+<body>
+    <!-- DESIGNATED LCOATION TO INSERT REACT CONTENT -->
+    <div id="app">
+        Error: React could not be rendered
+    </div>
+    <!-- Javascript -->
+    <script type="text/babel">
+        
+        var colors = [
+            {id: 1, name: "red", color: "red"},
+            {id: 2, name: "green", color: "green"},
+            {id: 3, name: "blue", color: "blue"},
+            {id: 4, name: "yellow", color: "yellow"},
+            {id: 5, name: "indigo", color: "indigo"},
+            {id: 6, name: "violet", color: "violet"},
+        ]
+
+        var colorSpectrum = colors.map(function(color){
+
+            var colorStyle = {
+                backgroundColor: color.color,
+                width: 100,
+                height: 60
+            }
+
+            return (
+
+                <div key={color.id}>
+                    <h1 style={colorStyle}>{color.name}</h1>
+                </div>
+            )
+        })
+
+        // Render React to DOM - takes 2 arugments (react what, react where)
+        ReactDOM.render(
+            // React what - JSX
+            <div>
+                {colorSpectrum}
+            </div>
+            ,
+            // React where - DIV into ID of "App"
+            document.getElementById("app")
+        );
+
+    </script>
+
+</body>
+</html>
