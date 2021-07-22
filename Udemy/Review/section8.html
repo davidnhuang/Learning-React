@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- React Library-->
+    <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+    <!-- React DOM library -->
+    <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+    <!-- Babel Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+    <title>Let's React!</title>
+</head>
+<body>
+    <!-- DESIGNATED LCOATION TO INSERT REACT CONTENT -->
+    <div id="app">
+        Error: React could not be rendered
+    </div>
+    <!-- Javascript -->
+    <script type="text/babel">
+        
+        // Javascript
+        var siblings = [
+            {id: 1, name: "Chris", female: false},
+            {id: 2, name: "Jeff", female: false},
+            {id: 3, name: "Julie", female: true},
+            {id: 4, name: "Jessica", female: true},
+        ];
+
+        function FamilyList(props) {
+
+            var siblings = props.siblings
+
+            var femaleSiblings = siblings.filter(function(member){
+                return member.female
+            }).map(function(member){
+                return <div key={member.id}>{member.name}</div>
+            });
+
+            var maleSiblings = siblings.filter(function(member){
+                return !member.female // or member.female === false;
+            }).map(function(member){
+                return <div key={member.id}>{member.name}</div>
+            });
+
+            return (
+                <div>
+                    <h1>Female siblings</h1>
+                    <div>{femaleSiblings}</div>
+                    <hr/>
+                    <h1>Male siblings</h1>
+                    <div>{maleSiblings}</div>
+                </div>
+            )
+        }
+
+        // Render React to DOM - takes 2 arugments (react what, react where)
+        ReactDOM.render(
+            // React what - JSX
+            <div>
+                <FamilyList siblings={siblings}/>
+            </div>
+            ,
+            // React where - DIV into ID of "App"
+            document.getElementById("app")
+        );
+
+    </script>
+
+</body>
+</html>

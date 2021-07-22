@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- React Library-->
+    <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+    <!-- React DOM library -->
+    <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+    <!-- Babel Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+    <title>Let's React!</title>
+</head>
+<body>
+    <!-- DESIGNATED LCOATION TO INSERT REACT CONTENT -->
+    <div id="app">
+        Error: React could not be rendered
+    </div>
+    <!-- Javascript -->
+    <script type="text/babel">
+        
+        // Javascript
+        var Colors = [
+            {id: 1, name: "Red", color: "Red"},
+            {id: 2, name: "Orange", color: "Orange"},
+            {id: 3, name: "Yellow", color: "Yellow"},
+            {id: 4, name: "Green", color: "Green"},
+            {id: 5, name: "Blue", color: "Blue"},
+            {id: 6, name: "Violet", color: "Violet"}
+        ];
+
+        function ColorSpectrum(props) {
+            var Colors = props.Colors
+
+            var Spectrum = Colors.map(function(color){
+
+                var ColorStyle = {
+                    width: 200,
+                    height: 100,
+                    backgroundColor: color.name,
+                }
+
+                return(
+                    <div key={color.id} style={ColorStyle}>
+                        <h1>{color.name}</h1>
+                    </div>
+                )
+            })
+
+            return(
+                <div>{Spectrum}</div>
+            )
+        }
+
+        // Render React to DOM - takes 2 arugments (react what, react where)
+        ReactDOM.render(
+            // React what - JSX
+            <div>
+                <ColorSpectrum Colors={Colors}/>
+            </div>
+            ,
+            // React where - DIV into ID of "App"
+            document.getElementById("app")
+        );
+
+    </script>
+
+</body>
+</html>
